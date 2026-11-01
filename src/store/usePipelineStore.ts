@@ -369,11 +369,17 @@ export const usePipelineStore = create<PipelineStoreState>((set, get) => ({
 
       set({ deals: finalDeals });
 
+      const isSingle = idsToMove.length === 1;
+      const singleDealName = isSingle ? (deals[idsToMove[0]]?.company || 'deal') : '';
+      const stageLabel = targetStage.replace('_', ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+
       addToast({
         type: 'success',
-        title: `Bulk Move Successful`,
-        description: `Successfully moved ${idsToMove.length} deals to ${targetStage.replace('_', ' ').toUpperCase()}.`,
-        duration: 5000,
+        title: isSingle ? 'Deal Moved' : 'Bulk Move Successful',
+        description: isSingle
+          ? `Successfully moved ${singleDealName} to ${stageLabel}.`
+          : `Successfully moved ${idsToMove.length.toLocaleString()} deals to ${stageLabel}.`,
+        duration: 4000,
       });
     } catch (error: any) {
       // Bulk Save Failed - Rollback batch
@@ -396,10 +402,15 @@ export const usePipelineStore = create<PipelineStoreState>((set, get) => ({
         stageDealIds: rollbackStageIndices,
       });
 
+      const isSingle = idsToMove.length === 1;
+      const singleDealName = isSingle ? (deals[idsToMove[0]]?.company || 'deal') : '';
+
       addToast({
         type: 'error',
-        title: `Bulk Operation Failed`,
-        description: `${error.message || 'Server error'}. Rolled back all ${idsToMove.length} deals.`,
+        title: isSingle ? `Failed to Move ${singleDealName}` : `Bulk Operation Failed`,
+        description: isSingle
+          ? `${error.message || 'Server error'}. Rolled back ${singleDealName}.`
+          : `${error.message || 'Server error'}. Rolled back all ${idsToMove.length.toLocaleString()} deals.`,
         duration: 9000,
       });
     }

@@ -21,7 +21,7 @@ export interface Deal {
   company: string;
   licenses: number;
   value: number; // in INR (₹)
-  owner: string; // e.g. Aditya, Rahul, Amit
+  owner: string; // e.g. Gnanakumar, Rahul, Amit
   stage: StageId;
   createdAt: string;
   lastContactedAt: string;

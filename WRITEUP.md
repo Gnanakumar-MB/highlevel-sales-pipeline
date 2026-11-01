@@ -12,7 +12,7 @@ We built a high-density, real-time sales pipeline management workspace capable o
 
 ### Core Problems Solved:
 1. **"I don't know which deals to work on today"**:
-   - Introduced **Priority Filter Presets** (*"My Deals (Aditya)"*, *"Stale Deals (>30d)"*, *"High Value (≥₹20L)"*) and dynamic Rupee metric aggregations.
+   - Introduced **Priority Filter Presets** (*"My Deals (Gnanakumar)"*, *"Stale Deals (>30d)"*, *"High Value (≥₹20L)"*) and dynamic Rupee metric aggregations.
    - Global instant fuzzy search across 50,000 deals with hotkey `/`.
 2. **"At quarter end I need to move thousands of old deals to Lost, and I can only do it a few at a time"**:
    - Provided a dedicated **Dual-View Architecture**: a visual Kanban Board alongside a high-density virtualized Table View.

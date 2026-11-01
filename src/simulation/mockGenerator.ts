@@ -11,7 +11,7 @@ export const PIPELINE_STAGES: Stage[] = [
 ];
 
 export const TEAM_MEMBERS = [
-  'Aditya (You)',
+  'Gnanakumar (You)',
   'Rahul Sharma',
   'Amit Patel',
   'Sneha Rao',
@@ -33,7 +33,7 @@ export const TEAM_MEMBERS = [
   'Kavita Deshmukh'
 ];
 
-export const CURRENT_USER = 'Aditya (You)';
+export const CURRENT_USER = 'Gnanakumar (You)';
 
 const COMPANIES = [
   'Acme Corp', 'Tata Digital', 'Reliance Retail', 'Infosys Cloud', 'Flipkart Tech',
@@ -95,7 +95,7 @@ export function generateMockDeals(): {
       const company = COMPANIES[(idCounter + i * 3) % COMPANIES.length];
       const product = PRODUCT_LINES[(idCounter + i) % PRODUCT_LINES.length];
       
-      // Rep assignment: 25% chance of Aditya (the user) so "My Deals" has ~12,500 deals to filter
+      // Rep assignment: 25% chance of Gnanakumar (the user) so "My Deals" has ~12,500 deals to filter
       const owner = (idCounter % 4 === 0) 
         ? CURRENT_USER 
         : TEAM_MEMBERS[(idCounter + i) % TEAM_MEMBERS.length];

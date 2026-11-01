@@ -53,7 +53,11 @@ export const QuickMoveModal: React.FC = () => {
         <div className="p-3.5 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-950/60">
           <div>
             <h4 className="text-xs font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider">
-              {isBulk ? `Move ${selectedDealIds.size} Deals` : `Move Deal: ${activeDeal?.company || 'Selected Deal'}`}
+              {selectedDealIds.size > 1 
+                ? `Move ${selectedDealIds.size.toLocaleString()} Deals`
+                : selectedDealIds.size === 1
+                ? `Move Deal: ${deals[Array.from(selectedDealIds)[0]]?.company || 'Selected Deal'}`
+                : `Move Deal: ${activeDeal?.company || 'Selected Deal'}`}
             </h4>
             <p className="text-[11px] text-slate-500 dark:text-slate-400">Press number [1-7] or click a stage</p>
           </div>
